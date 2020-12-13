@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,9 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">注册账号</p>
 
-            <form action="/" method="post">
+            <form action="/register" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="账号">
+                    <input type="text" class="form-control" name="account" placeholder="账号" th:value="${account}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="姓名">
+                    <input type="text" class="form-control" name ="name" id = "name"placeholder="姓名"th:value="${name}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="邮箱">
+                    <input type="email" class="form-control" name="email" id ="email" placeholder="邮箱"th:value="${email}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="密码">
+                    <input type="password" class="form-control" name="password" id ="password" placeholder="密码" th:value="${password}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -66,7 +66,9 @@
                     </div>
                 </div>
                 <div class="row">
-
+                    <div class="col-7">
+                        <a href="/" class="text-center">我已经有账号了</a>
+                    </div>
                     <!-- /.col -->
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">注册</button>
@@ -76,7 +78,7 @@
             </form>
 
 
-            <a href="/" class="text-center">我已经有账号了</a>
+
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
