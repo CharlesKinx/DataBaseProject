@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人博客</title>
+    <!-- 告诉浏览器屏幕自适应 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- 主题样式 -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <!-- 离线 Google 字体: Source Sans Pro -->
+    <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- 导航栏 -->
+    <div th:insert="~{navigation :: nav}"></div>
+    <!-- /.navbar -->
+
+    <!-- 主侧边栏容器 -->
+
+
+    <div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="container-fluid main">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>写博客</h2>
+                            <hr>
+                            <form action="/publish" method="post">
+                                <input type="hidden" name="id" th:value="${id}">
+                                <div class="form-group">
+                                    <label for="title">博客标题 </label>
+                                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="博客标题...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">博客内容（必填，参考右侧提示） </label>
+                                    <textarea  name="description" id="description" class="form-control" th:value="${description}" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tag">添加标签 </label>
+                                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="【JAVA、机器学习、Python、计算机视觉....】【输入标签，以，号分隔】">
+                                </div>
+
+                                <div class="container-fluid main">
+                                    <div class="row">
+                                        <div class=" col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                                 th:text="${error}"
+                                                 th:if="${error!=null}">
+
+                                            </div>
+                                        </div>
+                                        <div class=" col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                            <button type="submit" class="btn btn-success btn-publish">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
+                            <h3> 博客编写指南</h3>
+                            • 博客标题: 请用精简的语言描述您发布的博客，不超过25字<br>
+                            • 博客补充: 详细描述您的博客内容，并确保博客描述清晰直观, 并提供一些相关的资料<br>
+                            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- 解决使用 Bootstrap 提示工具与 jQuery UI 提示工具冲突 -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script><script src="plugins/moment/locale/zh-cn.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE 仪表盘演示（仅用于演示） -->
+<script src="dist/js/pages/dashboard.js"></script>
+<!-- 用于演示 AdminLTE  -->
+<script src="dist/js/demo.js"></script>
+
+</body>
+</html>
