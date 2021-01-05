@@ -5,13 +5,6 @@ import javax.sql.rowset.serial.SerialStruct;
 public class User {
     private Integer id;
     private String account;
-    private String password;
-    private String name;
-    private String email;
-    private String location;
-    private Integer age;
-    private String skills;
-    private String introduce;
 
     public Integer getId() {
         return id;
@@ -45,20 +38,20 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
-    public String getLocation() {
-        return location;
+    public String getEducation() {
+        return education;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setEducation(String education) {
+        this.education = education;
     }
 
     public Integer getAge() {
@@ -69,19 +62,20 @@ public class User {
         this.age = age;
     }
 
-    public String getSkills() {
-        return skills;
+    public String getStatement() {
+        return statement;
     }
 
-    public void setSkills(String skills) {
-        this.skills = skills;
+    public void setStatement(String statement) {
+        this.statement = statement;
     }
 
-    public String getIntroduce() {
-        return introduce;
-    }
+    private String password;
+    private String name;
+    private String telephone;
+    private String education;
+    private Integer age;
+    private String statement;
 
-    public void setIntroduce(String introduce) {
-        this.introduce = introduce;
-    }
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
   <!-- 离线 Google 字体: Source Sans Pro -->
   <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" >
 <div class="login-box">
   <div class="login-logo">
     <a href="../../index2.html"><b>个人博客</b>系统</a>
@@ -27,25 +27,30 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">帐户登录</p>
-
-      <form action="/index" method="post">
+      <form action="/login" method="post">
         <div type="account" class="input-group mb-3">
-          <input  class="form-control" placeholder="账号">
-          <div class="input-group-append">
-            <div class="input-group-text">
+          <input  class="form-control" placeholder="账号" id ="account" name="account" th:value="${account}" >
+          <div class="input-group-append" >
+            <div class="input-group-text" >
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="密码">
-          <div class="input-group-append">
+          <input type="password" class="form-control" name="password" id ="password" placeholder="密码" th:value="${password}">
+          <div class="input-group-append" >
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
         <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 th:text="${error}"
+                 th:if="${error!=null}">
+            </div>
+          </div>
           <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
@@ -54,7 +59,6 @@
               </label>
             </div>
           </div>
-          <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">登录</button>
           </div>

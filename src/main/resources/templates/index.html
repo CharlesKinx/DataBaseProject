@@ -64,28 +64,22 @@
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="dist/img/user2-160x160.jpg"
-                       alt="User profile picture">
-                </div>
-
                 <h3 class="profile-username text-center">吴海董</h3>
-
-                <p class="text-muted text-center">物联网专业</p>
-
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>邮箱</b> <a class="float-right">664410795@qq.com</a>
                   </li>
                   <li class="list-group-item">
+                    <b>账号</b> <a class="float-right">664410795@qq.com</a>
+                  </li>
+                  <li class="list-group-item">
                     <b>年龄</b> <a class="float-right">21</a>
                   </li>
                   <li class="list-group-item">
-                    <b>学号</b> <a class="float-right">1807004739</a>
+                    <b>教育</b> <a class="float-right">1807004739</a>
                   </li>
                   <li class="list-group-item">
-                    <b>班级</b> <a class="float-right">18070242</a>
+                    <b>个人说明</b> <a class="float-right">18070242</a>
                   </li>
                 </ul>
 
@@ -94,45 +88,6 @@
             </div>
             <!-- /.card -->
 
-            <!-- 关于我 Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">关于我</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> 教育</strong>
-
-                <p class="text-muted">
-                  中北大学物联网专业
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> 位置</strong>
-
-                <p class="text-muted">山西省中北大学</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> 技能</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">JAVA开发</span>
-                  <span class="tag tag-success">计算机视觉</span>
-                  <span class="tag tag-info">机器学习</span>
-                  <span class="tag tag-warning">深度学习</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> 说明</strong>
-
-                <p class="text-muted">一个又菜但努力的码农！</p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
           </div>
           <!-- /.col -->
           <div class="col-md-9">
@@ -140,7 +95,8 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">个人主页</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">个人信息</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">修改个人信息</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settingpassword" data-toggle="tab">修改密码</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -150,7 +106,7 @@
                     <!-- Post -->
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">带边框的表格</h3>
+                        <h3 class="card-title">发表的博客</h3>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
@@ -158,15 +114,15 @@
                           <thead>
                           <tr>
                             <th style="width: 10px">#</th>
-                            <th>任务</th>
-                            <th>进度</th>
-                            <th style="width: 40px">标签</th>
+                            <th>博客类别</th>
+                            <th>占比</th>
+                            <th style="width: 40px">比例</th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr>
                             <td>1.</td>
-                            <td>软件更新</td>
+                            <td>JAVA</td>
                             <td>
                               <div class="progress progress-xs">
                                 <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -176,7 +132,7 @@
                           </tr>
                           <tr>
                             <td>2.</td>
-                            <td>清理数据库</td>
+                            <td>Web开发</td>
                             <td>
                               <div class="progress progress-xs">
                                 <div class="progress-bar bg-warning" style="width: 70%"></div>
@@ -186,7 +142,7 @@
                           </tr>
                           <tr>
                             <td>3.</td>
-                            <td>运行计划任务</td>
+                            <td>Android开发</td>
                             <td>
                               <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-primary" style="width: 30%"></div>
@@ -196,7 +152,27 @@
                           </tr>
                           <tr>
                             <td>4.</td>
-                            <td>修复 BUG</td>
+                            <td>计算机视觉</td>
+                            <td>
+                              <div class="progress progress-xs progress-striped active">
+                                <div class="progress-bar bg-success" style="width: 90%"></div>
+                              </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td>
+                          </tr>
+                          <tr>
+                            <td>5.</td>
+                            <td>ML/DL</td>
+                            <td>
+                              <div class="progress progress-xs progress-striped active">
+                                <div class="progress-bar bg-warning" style="width: 90%"></div>
+                              </div>
+                            </td>
+                            <td><span class="badge bg-warning">90%</span></td>
+                          </tr>
+                          <tr>
+                            <td>6.</td>
+                            <td>其他</td>
                             <td>
                               <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-success" style="width: 90%"></div>
@@ -208,33 +184,9 @@
                         </table>
                       </div>
                       <!-- /.card-body -->
-                      <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
-                          <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="card card-primary">
-                      <div class="card-header">
-                        <h3 class="card-title">区域图</h3>
 
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <div class="chart">
-                          <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                        </div>
-                      </div>
-                      <!-- /.card-body -->
                     </div>
+
                     <!-- /.post -->
 
 
@@ -243,43 +195,29 @@
 
                   <div class="tab-pane" id="settings">
                     <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">名字</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="名字">
-                        </div>
-                      </div>
+
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">邮箱</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="邮箱">
+                          <input type="text" class="form-control" id="inputEmail" placeholder="联系方式">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">名字</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">姓名</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="名字">
+                          <input type="text" class="form-control" id="inputName2" placeholder="姓名">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">经验</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">年龄</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="经验"></textarea>
+                          <input type="text" class="form-control" id="age" placeholder="年龄">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">技能</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">个人说明</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="技能">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> 我同意<a href="#">条款和条件</a>
-                            </label>
-                          </div>
+                          <input type="text" class="form-control" id="inputSkills" placeholder="个人说明">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -289,6 +227,36 @@
                       </div>
                     </form>
                   </div>
+                  <div class="tab-pane" id="settingpassword">
+                    <form class="form-horizontal">
+
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">旧密码</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="password" placeholder="旧密码">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">新密码</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="newpw1" placeholder="新密码">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">新密码</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="newpw2" placeholder="新密码">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">提交</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
                   <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
