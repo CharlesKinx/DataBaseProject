@@ -15,16 +15,27 @@
   <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+
+    .login-page{
+      background-image: url("./dist/img/background/background.png");
+      background-size:cover;
+    }
+
+  </style>
   <!-- 离线 Google 字体: Source Sans Pro -->
   <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page" >
+
+
+<body class="hold-transition login-page"  >
+
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>个人博客</b>系统</a>
+    <b>个人博客</b>系统</a>
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card" style="opacity: 0.5">
     <div class="card-body login-card-body">
       <p class="login-box-msg">帐户登录</p>
       <form action="/login" method="post">

@@ -5,6 +5,26 @@ import javax.sql.rowset.serial.SerialStruct;
 public class User {
     private Integer id;
     private String account;
+    private String password;
+    private String name;
+    private String telephone;
+    private String education;
+    private Integer age;
+    private String statement;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", education='" + education + '\'' +
+                ", age=" + age +
+                ", statement='" + statement + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -70,12 +90,6 @@ public class User {
         this.statement = statement;
     }
 
-    private String password;
-    private String name;
-    private String telephone;
-    private String education;
-    private Integer age;
-    private String statement;
 
 
 }

@@ -16,11 +16,19 @@
     <!-- 主题样式 -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
     <!-- 离线 Google 字体: Source Sans Pro -->
+    <style>
+
+        .register-page{
+            background-image: url("./dist/img/background/background.png");
+            background-size:cover;
+        }
+
+    </style>
     <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
-    <div class="card">
+    <div class="card" style="opacity: 0.5">
         <div class="card-body register-card-body">
             <p class="login-box-msg">注册账号</p>
             <form action="/register" method="post">
