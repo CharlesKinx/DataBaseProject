@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -29,7 +31,8 @@ public class LoginController {
     public String doLogin(
             @RequestParam(value = "account",required=false) String account,
             @RequestParam(value = "password",required=false) String password,
-            Model model
+            Model model,
+            HttpServletRequest request
                           ){
 
         model.addAttribute("account",account);
@@ -45,13 +48,18 @@ public class LoginController {
         }
 
         User userInfo = userService.findByAccount(account);
-        System.out.println(password);
-        System.out.println(userInfo.getPassword());
+
+        if(userInfo == null){
+            model.addAttribute("error", "无该用户信息！");
+            return "login";
+        }
         if(!userInfo.getPassword().equals(password)){
             model.addAttribute("error", "密码错误！");
             return "login";
         }
 
+        HttpSession session = request.getSession();
+        session.setAttribute("user",userInfo);
         return "redirect:/index";
     }
 }
