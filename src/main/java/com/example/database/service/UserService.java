@@ -17,7 +17,7 @@ public class UserService {
         if(user.getId() == null){
             userMapper.create(user);
         }else {
-
+            userMapper.updateInfo(user);
         }
     }
 
