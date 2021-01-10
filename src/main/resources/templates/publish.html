@@ -54,12 +54,17 @@
                                     <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="博客标题...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">博客内容（必填，参考右侧提示） </label>
+                                <label for="introduce">内容简介 </label>
+                                <input type="text" class="form-control"  id="introduce" name="introduce" placeholder="博客简介...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">博客内容 </label>
                                     <textarea  name="description" id="description" class="form-control" th:value="${description}" cols="30" rows="10"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="tag">添加标签 </label>
-                                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="【JAVA、机器学习、Python、计算机视觉....】【输入标签，以，号分隔】">
+                                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="【Java、机器学习、Python、计算机视觉....】【输入标签，以空格分隔】">
                                 </div>
 
                                 <div class="container-fluid main">
@@ -82,8 +87,10 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
                             <h3> 博客编写指南</h3>
                             • 博客标题: 请用精简的语言描述您发布的博客，不超过25字<br>
-                            • 博客补充: 详细描述您的博客内容，并确保博客描述清晰直观, 并提供一些相关的资料<br>
-                            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+                            • 博客简介: 请用精简的语言对您发布的博客进行介绍，不超过50字<br>
+                            • 博客内容: 详细描述您的博客内容，并确保博客描述清晰直观, 并提供一些相关的资料<br>
+                            • 选择标签: 选择一个或者多个合适的标签，用<b>空格隔开</b>，每个标签不超过10个字<br>
+                            • 选择类型: 【Java、Android、Python、计算机视觉、Web开发、其他】<br>
                         </div>
                     </div>
                 </div>
