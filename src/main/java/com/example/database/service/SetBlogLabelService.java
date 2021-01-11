@@ -49,7 +49,12 @@ public class SetBlogLabelService {
     }
 
     public void createBlogTag(SetBlogLabel setBlogLabel){
-        setBlogLabelMapper.insertBlogLabel(setBlogLabel);
+        if(setBlogLabel.getBlogID() == null){
+            setBlogLabelMapper.insertBlogLabel(setBlogLabel);
+        }else{
+            setBlogLabelMapper.deleteBlogTag(setBlogLabel);
+            setBlogLabelMapper.insertBlogLabel(setBlogLabel);
+        }
     }
 
     public void setBlogLabel(String label, int blogID){

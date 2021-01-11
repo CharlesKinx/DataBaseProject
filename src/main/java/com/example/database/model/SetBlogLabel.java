@@ -1,22 +1,22 @@
 package com.example.database.model;
 
 public class SetBlogLabel {
-    private int blogID;
-    private int labelID;
+    private Integer blogID;
+    private Integer labelID;
 
-    public int getBlogID() {
+    public Integer getBlogID() {
         return blogID;
     }
 
-    public void setBlogID(int blogID) {
+    public void setBlogID(Integer blogID) {
         this.blogID = blogID;
     }
 
-    public int getLabelID() {
+    public Integer getLabelID() {
         return labelID;
     }
 
-    public void setLabelID(int labelID) {
+    public void setLabelID(Integer labelID) {
         this.labelID = labelID;
     }
 }

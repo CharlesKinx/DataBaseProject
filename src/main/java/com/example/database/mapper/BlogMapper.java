@@ -9,13 +9,16 @@ import java.util.List;
 @Mapper
 public interface BlogMapper {
 
-    @Insert("insert into blog (title,description,creator,time,introduce) values(#{title},#{description},#{creator},#{gmtCreate},#{introduce})")
+    @Insert("insert into blog (title,description,creator,time,introduce) values(#{title},#{description},#{creator},#{time},#{introduce})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void createBlog(Blog blog);
 
     @Select("select *from blog where id =#{id}" )
     Blog findBlogByID(@Param(value = "id") Integer id);
 
-    @Select("select * from blog where creator =#{userId}")
-    List<Blog> listByUserID(@Param(value = "userId") Integer userId);
+    @Select("select * from blog")
+    List<Blog> list();
+
+    @Update("update blog set title = #{title}, description = #{description},introduce = #{introduce},time = #{time} where id=#{id}")
+    void updateBlog(Blog blog);
 }

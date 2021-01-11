@@ -5,8 +5,7 @@ public class Blog {
     private String title;
     private Integer id;
     private String description;
-    private Integer tag;
-    private Long gmtCreate;
+    private Long time;
     private Integer creator;
     private String introduce;
 
@@ -42,20 +41,12 @@ public class Blog {
         this.description = description;
     }
 
-    public Integer getTag() {
-        return tag;
+    public Long getTime() {
+        return time;
     }
 
-    public void setTag(Integer tag) {
-        this.tag = tag;
-    }
-
-    public Long getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
     public Integer getCreator() {
@@ -72,8 +63,7 @@ public class Blog {
                 "title='" + title + '\'' +
                 ", id=" + id +
                 ", description='" + description + '\'' +
-                ", tag=" + tag +
-                ", gmtCreate=" + gmtCreate +
+                ", gmtCreate=" + time +
                 ", creator=" + creator +
                 ", introduce='" + introduce + '\'' +
                 '}';

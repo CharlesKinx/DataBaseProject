@@ -14,6 +14,9 @@ public interface UserMapper {
     @Select("select * from user where account=#{account}")
     User findByAccount(@Param("account") String account);
 
+    @Select("select * from user where id=#{id}")
+    User findById(@Param("id") int id);
+
     @Update("update user set telephone=#{telephone},name=#{name},age =#{age},education =#{education},statement=#{statement},password = #{password} where id =#{id}")
     void updateInfo(User user);
 

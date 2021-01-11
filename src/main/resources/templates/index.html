@@ -173,7 +173,7 @@
                           </tr>
                           <tr>
                             <td>5.</td>
-                            <td>ML/DL</td>
+                            <td>Python</td>
                             <td>
                               <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-warning" style="width: 90%"></div>
@@ -249,7 +249,10 @@
                           <input type="password" class="form-control" name="password1" id="password1" placeholder="确认新密码" th:value="${password1}">
                         </div>
                       </div>
-
+                      <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                           th:text="${error}"
+                           th:if="${error!=null}">
+                      </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button type="submit" class="btn btn-danger">提交</button>

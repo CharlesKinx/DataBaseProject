@@ -7,9 +7,7 @@ import com.example.database.service.SetBlogLabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,6 +27,19 @@ public class PublishBlogController {
         return "publish";
     }
 
+    @GetMapping("/publish/{id}")
+    public String changeBlog(@PathVariable(name="id") Integer id,
+                             HttpServletRequest request,
+                             Model model){
+        Blog blog = blogService.findById(id);
+
+        model.addAttribute("title", blog.getTitle());
+        model.addAttribute("description", blog.getDescription());
+        model.addAttribute("introduce", blog.getIntroduce());
+        model.addAttribute("id", blog.getId());
+        return "publish";
+    }
+
 
     @PostMapping("/publish")
     public String doPublish(
@@ -36,6 +47,7 @@ public class PublishBlogController {
             @RequestParam("description") String description,
             @RequestParam("introduce") String introduce,
             @RequestParam("tag") String tag,
+            @RequestParam("id") Integer id,
             HttpServletRequest request,
             Model model) {
 
@@ -67,8 +79,9 @@ public class PublishBlogController {
         blog.setTitle(title);
         blog.setDescription(description);
         blog.setIntroduce(introduce);
-        blog.setGmtCreate(System.currentTimeMillis());
+        blog.setTime(System.currentTimeMillis());
         blog.setCreator(user.getId());
+        blog.setId(id);
         blogService.createOrUpdateBlog(blog);
         setBlogLabelService.setBlogLabel(tag,blog.getId());
         return "redirect:/publish";

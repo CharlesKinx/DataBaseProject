@@ -1,9 +1,6 @@
 package com.example.database.dto;
 
-import com.example.database.model.Blog;
 import com.example.database.model.User;
-
-import java.util.List;
 
 public class MyDynamicDTO {
 
@@ -11,8 +8,7 @@ public class MyDynamicDTO {
     private String title;
     private String description;
     private String introduce;
-    private String tag;
-    private Long gmtCreate;
+    private Long time;
     private Integer creator;
     private User user;
 
@@ -49,20 +45,13 @@ public class MyDynamicDTO {
         this.introduce = introduce;
     }
 
-    public String getTag() {
-        return tag;
+
+    public Long getTime() {
+        return time;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public Long getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
     public Integer getCreator() {
