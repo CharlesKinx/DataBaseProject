@@ -20,4 +20,5 @@ public interface UserMapper {
     @Update("update user set telephone=#{telephone},name=#{name},age =#{age},education =#{education},statement=#{statement},password = #{password} where id =#{id}")
     void updateInfo(User user);
 
+
 }

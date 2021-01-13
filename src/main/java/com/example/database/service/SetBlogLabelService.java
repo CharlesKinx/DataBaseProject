@@ -16,56 +16,66 @@ public class SetBlogLabelService {
     private SetBlogLabelMapper setBlogLabelMapper;
 
     public List<Integer> spiltTag(String label){
-
         String[] labels = label.split(" ");
         List<Integer> labelList = new ArrayList<>();
 
         for(String tag:labels){
             if(tag.equals("Java") || tag.equals("JAVA")||tag.equals("java")){
                 labelList.add(1);
-                break;
+                continue;
             }
             if(tag.equals("Python") || tag.equals("PYTHON")|| tag.equals("python")){
                 labelList.add(2);
-                break;
+                continue;
             }
-            if(tag.equals("Web开发") ){
+            if(tag.equals("Web开发") || tag.equals("web")){
                 labelList.add(3);
-                break;
+                continue;
             }
-            if(tag.equals("计算机视觉")){
+            if(tag.equals("计算机视觉")|| tag.equals("cv")|| tag.equals("CV")){
                 labelList.add(4);
-                break;
+                continue;
             }
             if(tag.equals("Android") || tag.equals("ANDROID")|| tag.equals("android")){
                 labelList.add(5);
-                break;
+                continue;
             }
             labelList.add(6);
         }
-
         return labelList;
 
     }
 
-    public void createBlogTag(SetBlogLabel setBlogLabel){
-        if(setBlogLabel.getBlogID() == null){
-            setBlogLabelMapper.insertBlogLabel(setBlogLabel);
-        }else{
-            setBlogLabelMapper.deleteBlogTag(setBlogLabel);
+    public List<Integer> findByTagID(Integer id){
+        List<Integer> tagList = setBlogLabelMapper.findByTagID(id);
+        return tagList;
+    }
+
+
+    public void updateSetBlogTags(List<SetBlogLabel> setBlogLabels){
+        for(SetBlogLabel setBlogLabel:setBlogLabels){
             setBlogLabelMapper.insertBlogLabel(setBlogLabel);
         }
     }
 
-    public void setBlogLabel(String label, int blogID){
-
+    public void setBlogLabel(String label, Integer blogID){
         List<Integer> labelList = spiltTag(label);
+        List<SetBlogLabel> setBlogLabels = new ArrayList<>();
         for(int tag:labelList){
             SetBlogLabel setBlogLabel =new SetBlogLabel();
             setBlogLabel.setBlogID(blogID);
             setBlogLabel.setLabelID(tag);
-            createBlogTag(setBlogLabel);
+            setBlogLabels.add(setBlogLabel);
         }
 
+        if(blogID == null){
+            updateSetBlogTags(setBlogLabels);
+        }else {
+            setBlogLabelMapper.deleteBlogTag(blogID);
+            updateSetBlogTags(setBlogLabels);
+        }
     }
+
+
+
 }

@@ -20,8 +20,6 @@ public class DynamicController {
     public String index(){
 
 
-
-
         return "dynamic";
     }
 

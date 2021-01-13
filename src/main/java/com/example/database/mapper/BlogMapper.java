@@ -19,6 +19,14 @@ public interface BlogMapper {
     @Select("select * from blog")
     List<Blog> list();
 
+    @Select("select * from blog where id=#{id} and creator = #{creator}")
+    Blog userBlogList(@Param(value = "id") Integer id,@Param(value = "creator") Integer creator);
+
+    @Delete("delete from blog where id=#{blogID}")
+    void deleteBlogByID(@Param(value = "blogID") Integer blogID);
+
+
+
     @Update("update blog set title = #{title}, description = #{description},introduce = #{introduce},time = #{time} where id=#{id}")
     void updateBlog(Blog blog);
 }

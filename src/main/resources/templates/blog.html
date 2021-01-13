@@ -25,6 +25,14 @@
     <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.css">
+
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/dist/js/editormd.min.js"></script>
+    <link rel="stylesheet"href="/dist/css/editormd.min.css" />
+    <link rel="stylesheet"href="/dist/css/editormd.preview.min.css" />
+
+    <script src="/dist/js/lib/marked.min.js"></script>
+    <script src="/dist/js/lib/prettify.min.js"></script>
     <!-- 离线 Google 字体: Source Sans Pro -->
     <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -48,12 +56,18 @@
                         <hr>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${myBlog.introduce}"></div>
                         <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${myBlog.description}"></div>
-                        <a th:href="@{'/publish/'+${myBlog.id}}" th:class="demo-menu" th:if ="${session.user!=null && session.user.id==myBlog.creator}">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true">
-                                <ion-icon name="pencil-outline"></ion-icon>
-                            </span>
-                            编辑</a>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id = "blog-view">
+                            <textarea style="display:none;" th:text="${myBlog.description}" ></textarea>
+
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                                editormd.markdownToHTML("blog-view", {
+
+                                });
+                            });
+                        </script>
 
                     </div>
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
@@ -69,9 +83,28 @@
                             </div>
                         </div>
                         <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-                            <h4>相关问题</h4>
+
+                        <a th:href="@{'/publish/'+${myBlog.id}}" th:class="demo-menu" th:if ="${session.user!=null && session.user.id==myBlog.creator}">
+                        <div class="info-box mb-3 bg-warning">
+                            <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+                            <span class="info-box-icon"><i class="fas">编辑</i></span>
+                            <!-- /.info-box-content -->
                         </div>
+                        </a>
+                        <!-- /.info-box -->
+
+                        <!-- /.info-box -->
+                        <a th:href="@{'/blog/delete/'+${myBlog.id}}" th:if ="${session.user!=null && session.user.id==myBlog.creator}">
+                            <div class="info-box mb-3 bg-danger">
+                                <span class="info-box-icon">
+                                    <i class="fas fa-cloud-download-alt"></i>
+                                </span>
+                                <span class="info-box-icon">
+                                    <i class="fas ">删除</i>
+                                </span>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

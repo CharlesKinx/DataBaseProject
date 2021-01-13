@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,16 +42,6 @@
         </li>
 
     </ul>
-    <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-            <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- 品牌 Logo -->
@@ -80,12 +70,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/dynamic" class="nav-link ">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>我的动态</p>
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a href="/publish" class="nav-link ">
                                     <i class="nav-icon fas fa-edit"></i>
@@ -112,38 +97,38 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                <a href="/allBlogs/java" th:class="${section=='java'}?'active nav-link':'nav-link'">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Java</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/allBlogs/web" th:class="${section=='web'}?'active nav-link':'nav-link'" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Web开发</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/allBlogs/android" th:class="${section=='android'}?'active nav-link':'nav-link'" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Android</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/allBlogs/cv" th:class="${section=='cv'}?'active nav-link':'nav-link'" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>计算机视觉</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/allBlogs/python" th:class="${section=='python'}?'active nav-link':'nav-link'" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Python</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/allBlogs/others" th:class="${section=='others'}?'active nav-link':'nav-link'" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>其他</p>
                                 </a>
@@ -151,7 +136,7 @@
                         </ul>
                     </li>
                     <li class="nav-item oi oi-copywriting">
-                        <a href="/allBlogs" class="nav-link">
+                        <a href="/allBlogs/all" th:class="${section=='all'}?'active nav-link':'nav-link'">
                             <i class="nav-icon fas fa-th"></i>
                             <p>博客主页</p>
                         </a>

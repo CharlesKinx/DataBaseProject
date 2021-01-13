@@ -26,7 +26,6 @@ public class LoginController {
         return "login";
     }
 
-
     @PostMapping("login")
     public String doLogin(
             @RequestParam(value = "account",required=false) String account,
@@ -42,6 +41,9 @@ public class LoginController {
             model.addAttribute("error", "账号不能为空！");
             return "login";
         }
+
+
+
         if(password == null || password == ""){
             model.addAttribute("error", "密码不能为空！");
             return "login";

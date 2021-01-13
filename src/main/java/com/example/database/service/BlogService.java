@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -23,6 +25,9 @@ public class BlogService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private SetBlogLabelService setBlogLabelService;
 
     public void createOrUpdateBlog(Blog blog){
         if(blog.getId()==null){
@@ -44,7 +49,7 @@ public class BlogService {
             BeanUtils.copyProperties(blog,myDynamicDTO);
             myDynamicDTOS.add(myDynamicDTO);
         }
-
+        Collections.reverse(myDynamicDTOS);
         return myDynamicDTOS;
     }
 
@@ -66,6 +71,34 @@ public class BlogService {
     public Blog findById(int id){
         Blog blog = blogMapper.findBlogByID(id);
         return blog;
+    }
+
+
+    public AllBlogsDTO categoryBlogsList(Integer labelID,Integer userID){
+
+        List<Integer> blogIdList = setBlogLabelService.findByTagID(labelID);
+        List<MyDynamicDTO> myDynamicDTOS = new ArrayList<>();
+
+        for(Integer integer :blogIdList){
+            Blog blog = new Blog();
+            MyDynamicDTO myDynamicDTO = new MyDynamicDTO();
+            blog = blogMapper.userBlogList(integer,userID);
+            if(blog == null){
+                continue;
+            }else{
+                myDynamicDTO.setUser(userMapper.findById(userID));
+                BeanUtils.copyProperties(blog,myDynamicDTO);
+                myDynamicDTOS.add(myDynamicDTO);
+            }
+        }
+        AllBlogsDTO allBlogsDTO = new AllBlogsDTO();
+        Collections.reverse(myDynamicDTOS);
+        allBlogsDTO.setMyDynamicDTOS(myDynamicDTOS);
+        return allBlogsDTO;
+    }
+
+    public void deleteBlogByID(int id){
+        blogMapper.deleteBlogByID(id);
     }
 
 }
