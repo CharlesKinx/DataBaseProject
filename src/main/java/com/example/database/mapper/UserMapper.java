@@ -1,8 +1,10 @@
 package com.example.database.mapper;
 
+import com.example.database.model.Blog;
 import com.example.database.model.User;
 import org.apache.ibatis.annotations.*;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Mapper
@@ -19,6 +21,12 @@ public interface UserMapper {
 
     @Update("update user set telephone=#{telephone},name=#{name},age =#{age},education =#{education},statement=#{statement},password = #{password} where id =#{id}")
     void updateInfo(User user);
+
+    @Select("select * from user,blog where user.id = blog.creator")
+    List<Blog> userBlogList();
+
+    @Select("select * from user ")
+    List<User> findAllUser();
 
 
 }

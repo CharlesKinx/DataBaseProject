@@ -51,8 +51,8 @@
                                 <span th:text="${blog.getIntroduce()}"></span><br>
 
                                 <span class="text-des">
-                                    <span th:text="${#dates.format(blog.getTime(),'yyyy-MM-dd HH:mm')}">
-
+                                    <span th:text="${blog.getReadnums()}"></span> 次浏览 •
+                                    发布时间：<span th:text="${#dates.format(blog.getTime(),'yyyy-MM-dd HH:mm')}">
                                     </span>
                                     </span>
                                 <hr>

@@ -41,6 +41,11 @@ public class RegisterController {
             return "register";
         }
 
+        if(userService.isExitAccount(account)){
+            model.addAttribute("error", "账号已存在！");
+            return "register";
+        }
+
         if(name == null || name ==""){
             model.addAttribute("error", "姓名不能为空！");
             return "register";

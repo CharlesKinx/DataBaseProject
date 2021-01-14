@@ -1,6 +1,7 @@
 package com.example.database.controller;
 
 import com.example.database.dto.AllBlogsDTO;
+import com.example.database.model.Blog;
 import com.example.database.model.User;
 import com.example.database.service.BlogService;
 import com.example.database.service.UserService;
@@ -52,6 +53,8 @@ public class IndexController {
         AllBlogsDTO allBlogsDTO5 = blogService.categoryBlogsList(6, user.getId());
         int othersCounts = allBlogsDTO5.getMyDynamicDTOS().size();
 
+        int readNums = userService.getReadNums(user.getId());
+        model.addAttribute("readNums",readNums);
 
         model.addAttribute("javaCounts",javaCounts);
         model.addAttribute("pythonCounts",pythonCounts);
@@ -78,7 +81,6 @@ public class IndexController {
 
         HttpSession session = httpServletRequest.getSession();
         User user = (User)session.getAttribute("user");
-
 
 
         model.addAttribute("user",user);

@@ -37,12 +37,16 @@ public class LoginController {
         model.addAttribute("account",account);
         model.addAttribute("password",password);
 
+
         if(account == null || account == ""){
             model.addAttribute("error", "账号不能为空！");
             return "login";
         }
 
-
+        if(!userService.isExitAccount(account)){
+            model.addAttribute("error", "账号不存在！");
+            return "login";
+        }
 
         if(password == null || password == ""){
             model.addAttribute("error", "密码不能为空！");

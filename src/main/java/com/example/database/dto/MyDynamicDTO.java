@@ -11,7 +11,15 @@ public class MyDynamicDTO {
     private Long time;
     private Integer creator;
     private User user;
+    private int readnums;
 
+    public int getReadnums() {
+        return readnums;
+    }
+
+    public void setReadnums(int readnums) {
+        this.readnums = readnums;
+    }
 
     public Integer getId() {
         return id;

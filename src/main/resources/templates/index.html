@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,12 +94,19 @@
                   </a>
                   </li>
                 </ul>
-
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text"> 总阅读量</span>
+                <span class="info-box-number" th:text="${readNums}"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
           </div>
           <!-- /.col -->
           <div class="col-md-9">

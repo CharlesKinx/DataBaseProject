@@ -8,6 +8,15 @@ public class Blog {
     private Long time;
     private Integer creator;
     private String introduce;
+    private int readnums;
+
+    public int getReadnums() {
+        return readnums;
+    }
+
+    public void setReadnums(int readnums) {
+        this.readnums = readnums;
+    }
 
     public String getTitle() {
         return title;

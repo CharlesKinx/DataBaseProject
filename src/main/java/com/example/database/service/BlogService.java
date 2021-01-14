@@ -7,13 +7,11 @@ import com.example.database.mapper.BlogMapper;
 import com.example.database.mapper.UserMapper;
 import com.example.database.model.Blog;
 import com.example.database.model.User;
-import com.mysql.cj.protocol.a.MysqlBinaryValueDecoder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,6 +59,8 @@ public class BlogService {
 
     public MyDynamicDTO findByID(int id){
         Blog blog =blogMapper.findBlogByID(id);
+        blog.setReadnums(blog.getReadnums()+1);
+        blogMapper.updateBlogReadNums(blog);
         MyDynamicDTO myDynamicDTO = new MyDynamicDTO();
         BeanUtils.copyProperties(blog,myDynamicDTO);
         User user = userMapper.findById(blog.getCreator());
